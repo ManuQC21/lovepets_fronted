@@ -1,0 +1,61 @@
+<h2>Detalle de Solicitud</h2>
+
+<ng-container *ngIf="$data | async as loadedData; else loading">
+  <div class="outer-container">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title> Mascota </mat-card-title>
+        <mat-card-subtitle> {{ loadedData.solicitud.mascota.nombres }} </mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content style="display: flex; justify-content: center; gap: 50px;">
+        <div>
+          <p><b>Nombre: </b>{{ loadedData.solicitud.mascota.nombres }}</p>
+          <p><b>Raza: </b>{{ loadedData.solicitud.mascota.raza }}</p>
+          <p><b>Tamaño: </b>{{ loadedData.solicitud.mascota.tamanio }}</p>
+        </div>
+        <div style="max-width: 250px; border-radius: 10px; overflow: hidden">
+          <img style="width: 100%; " src="https://material.angular.io/assets/img/examples/shiba2.jpg">
+        </div>
+
+      </mat-card-content>
+    </mat-card>
+    <div class="inner-container">
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title> Solicitud </mat-card-title>
+          <mat-card-subtitle> {{ loadedData.solicitud.fechaSolicitud }} </mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content style="display: flex; justify-content: center; gap: 50px;">
+          <div>
+            <p><b>Mensaje: </b>{{ loadedData.solicitud.mensaje }}</p>
+          </div>
+        </mat-card-content>
+      </mat-card>
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title> Perfil Solicitante </mat-card-title>
+        </mat-card-header>
+        <mat-card-content style="display: flex; justify-content: center; gap: 50px;">
+          <div>
+            <p><b>Nombres: </b>{{ loadedData.perfil.nombres }}</p>
+            <p><b>DNI: </b>{{ loadedData.perfil.dni }}</p>
+            <p><b>Edad: </b>{{ loadedData.perfil.edad }}</p>
+            <p><b>Correo: </b>{{ loadedData.perfil.correo }}</p>
+            <p><b>Celular: </b>{{ loadedData.perfil.celular }}</p>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+    <div class="actions">
+      <button mat-raised-button color="primary">Aceptar</button>
+      <button mat-raised-button color="warn">Declinar</button>
+    </div>
+  </div>
+</ng-container>
+
+
+<ng-template #loading>
+  <div style="width: 100%; margin: 100px 0;">
+    <mat-spinner style="margin: auto;"></mat-spinner>
+  </div>
+</ng-template>

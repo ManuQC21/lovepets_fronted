@@ -1,0 +1,38 @@
+
+main {
+  max-width: 1100px;
+  margin: 0 auto;
+  min-height: 82%;
+  /*padding: 50px 150px 0;*/
+  padding: 40px 50px;
+}
+
+.background {
+  width: 100%;
+}
+
+@media screen and (max-width: 1000px) {
+  main {
+    /*padding: 50px 100px 0;*/
+  }
+
+  .background {
+    width: 150%;
+  }
+}
+
+@media screen and (max-width: 840px) {
+  main {
+    /*padding: 50px 50px 0;*/
+  }
+
+}
+
+@media screen and (max-width: 480px) {
+  main {
+    /*padding: 50px 25px 0;*/
+  }
+  main {
+    padding: 20px 10px;
+  }
+}

@@ -1,0 +1,25 @@
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-field {
+  margin-bottom: 20px;
+}
+
+.button {
+  width: 100%;
+}
+
+span {
+  margin-top: 20px;
+  text-align: center;
+}
+
+h2 {
+  text-align: center;
+  color: #3C4048;
+  font-size: 1.8rem;
+}

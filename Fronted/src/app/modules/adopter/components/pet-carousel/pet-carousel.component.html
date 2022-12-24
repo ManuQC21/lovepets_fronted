@@ -1,0 +1,9 @@
+<div class="carousel-container">
+  <mat-card class="pet-card" *ngFor="let pet of pets">
+    <mat-card-header>
+      <mat-card-title>{{ pet.name }}</mat-card-title>
+    </mat-card-header>
+    <img mat-card-image [src]="pet.img" alt="Photo">
+  </mat-card>
+</div>
+

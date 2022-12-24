@@ -1,0 +1,41 @@
+<div class="outer-container">
+  <h2>Register</h2>
+  <form [formGroup]="formGroup"
+        (ngSubmit)="submitForm()">
+
+    <mat-form-field class="form-field">
+      <input matInput
+             placeholder="Email"
+             formControlName="username">
+      <mat-error *ngIf="
+      !formGroup.controls['username'].valid &&
+      formGroup.controls['username'].touched"
+      >
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="form-field">
+      <input matInput
+             type="password"
+             placeholder="Password"
+             formControlName="password">
+      <mat-error *ngIf="
+      !formGroup.controls['password'].valid &&
+      formGroup.controls['password'].touched"
+      >
+      </mat-error>
+    </mat-form-field>
+
+    <div class="submit-button">
+      <button mat-raised-button
+              color="primary"
+              type="submit"
+              class="button"
+              [disabled]="!formGroup.valid">Register
+      </button>
+    </div>
+    <span>
+          Or <a [routerLink]="['/auth/login']">Log in!</a>
+    </span>
+  </form>
+</div>

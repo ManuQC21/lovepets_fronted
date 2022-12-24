@@ -1,0 +1,48 @@
+<div>
+  <form [formGroup]="formGroup"
+        (ngSubmit)="onSubmitForm(formGroup.value)">
+
+    <mat-form-field class="form-field">
+      <input matInput
+             placeholder="Nombre"
+             formControlName="nombres">
+      <mat-error *ngIf="
+      !formGroup.controls['nombres'].valid &&
+      formGroup.controls['nombres'].touched"
+      >
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="form-field">
+      <input matInput
+             placeholder="Raza"
+             formControlName="raza">
+      <mat-error *ngIf="
+      !formGroup.controls['raza'].valid &&
+      formGroup.controls['raza'].touched"
+      >
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="form-field">
+      <input matInput
+             placeholder="Tamanño"
+             formControlName="tamanio">
+      <mat-error *ngIf="
+      !formGroup.controls['tamanio'].valid &&
+      formGroup.controls['tamanio'].touched"
+      >
+      </mat-error>
+    </mat-form-field>
+
+    <div class="submit-button">
+      <button mat-raised-button
+              color="primary"
+              type="submit"
+              class="button"
+              [disabled]="!formGroup.valid">Registrar Mascota
+      </button>
+    </div>
+
+  </form>
+</div>

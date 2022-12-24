@@ -1,0 +1,13 @@
+<mat-card class="example-card">
+  <mat-card-header>
+    <mat-card-title>{{ pet.name }}</mat-card-title>
+    <mat-card-subtitle>{{ pet.race }}</mat-card-subtitle>
+  </mat-card-header>
+  <img mat-card-image [src]="pet.img" alt="Photo">
+  <mat-card-actions>
+    <button mat-button [routerLink]="['/adopter/pet/'+pet.id]">DETAIL</button>
+    <button mat-icon-button color="warn" aria-label="Example icon button with a heart icon">
+      <mat-icon>favorite</mat-icon>
+    </button>
+  </mat-card-actions>
+</mat-card>

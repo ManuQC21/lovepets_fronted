@@ -1,0 +1,28 @@
+
+.outer-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.inner-container {
+  display: flex;
+  gap: 20px;
+}
+
+.inner-container * {
+  width: 100%;
+}
+
+.actions {
+  display: flex;
+  gap: 20px;
+}
+
+.actions button {
+  width: 100%;
+}
+
+p {
+  margin-bottom: 10px !important;
+}

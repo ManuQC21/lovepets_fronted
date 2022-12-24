@@ -1,0 +1,55 @@
+<div class="outer-container">
+
+  <div class="container">
+    <mat-toolbar color="primary">
+      <span>
+        Pet Information
+      </span>
+    </mat-toolbar>
+    <div class="pet-info-container" *ngIf="pet$ | async as pet; else spinner">
+      <div class="image">
+        <img [src]="pet.img" alt="">
+      </div>
+      <div class="info">
+        <div class="info-header">
+          <h2>
+            {{ pet.name }}
+          </h2>
+          <button mat-raised-button color="accent">
+            <mat-icon [ngStyle]="{'color':'white'}">favorite</mat-icon>
+            Add to Favorites
+          </button>
+        </div>
+        <ul>
+          <li>
+            Edad: {{ pet.age }}
+          </li>
+          <li>
+            Vacunas: {{ pet.diseases }}
+          </li>
+          <li>
+            Raza: {{ pet.race }}
+          </li>
+        </ul>
+        <div class="description">
+          <p>
+            Informacion: {{ pet.description }}
+          </p>
+        </div>
+        <button class="adopt-button" color="primary" mat-raised-button>Adoptar</button>
+      </div>
+    </div>
+    <div class="other-pets">
+      <h2>Otras Mascotas</h2>
+      <ng-container *ngIf="pets$ | async as pets; else spinner">
+        <app-pet-carousel [pets]="pets"></app-pet-carousel>
+      </ng-container>
+    </div>
+  </div>
+</div>
+
+<ng-template #spinner>
+  <div class="loading">
+    <mat-spinner></mat-spinner>
+  </div>
+</ng-template>

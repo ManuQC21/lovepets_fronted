@@ -1,0 +1,59 @@
+header {
+  background-color: #F8C4B4;
+  width: 100%;
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 20px 30px;
+}
+
+.logo-container:hover {
+  cursor: pointer;
+}
+
+.logo {
+  width: 250px;
+}
+
+ul {
+  list-style: none;
+  display: flex;
+  padding: 0;
+  align-items: baseline;
+  justify-content: space-between;
+  background-color: white;
+  border-radius: 10px;
+  position: relative;
+}
+
+li {
+  font-size: 20px;
+  padding: 10px 15px;
+  position: relative;
+}
+
+li::after {
+  position: absolute;
+  content:"";
+  background: black;
+  bottom: 0;
+  left: 0;
+  height: 100%;
+  width: 1.5px;
+}
+
+li:first-child::after {
+  display: none;
+}
+
+li:hover {
+  color: #FC4646;
+  cursor: pointer;
+}
+
+.profile mat-icon {
+  transform: scale(1.3);
+}

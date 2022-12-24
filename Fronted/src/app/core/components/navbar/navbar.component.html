@@ -1,0 +1,100 @@
+<header>
+  <div class="header-container">
+    <div class="logo-container"
+         [routerLink]="['home']">
+      <img class="logo"
+           src="assets/images/logo.png"
+           alt="logo">
+    </div>
+    <nav class="nav"
+         *ngIf="currentUser$ | async as user; else notAuthenticated">
+      <ng-container *ngIf="user.idAdmin; else normalUser">
+        <ng-container [ngTemplateOutlet]="adminUser"></ng-container>
+      </ng-container>
+    </nav>
+
+    <div class="profile"
+         *ngIf="currentUser$ | async as user"
+    >
+      <button mat-icon-button
+              [matMenuTriggerFor]="menu"
+              aria-label="profile">
+        <mat-icon>person</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item
+                [routerLink]="['adopter/profile']">
+          <mat-icon>book</mat-icon>
+          <span>Profile ({{ user.username }}) </span>
+        </button>
+        <button mat-menu-item
+                (click)="logout()">
+          <mat-icon>exit_to_app</mat-icon>
+          <span>Logout</span>
+        </button>
+      </mat-menu>
+    </div>
+  </div>
+</header>
+
+<ng-template #notAuthenticated>
+  <nav>
+    <ul>
+      <li
+        [routerLink]="['/auth/login']"
+      >
+        Login
+      </li>
+      <li
+        [routerLink]="['/auth/register']"
+      >
+        Register
+      </li>
+    </ul>
+  </nav>
+</ng-template>
+
+<ng-template #normalUser>
+  <ul>
+    <li [routerLink]="['adopter/shelter']">
+      <a>
+        Albergue
+      </a>
+    </li>
+    <li>
+      <a>
+        Adopción
+      </a>
+    </li>
+    <li>
+      <a>
+        Voluntariado
+      </a>
+    </li>
+    <li>
+      <a>
+        Donación
+      </a>
+    </li>
+  </ul>
+</ng-template>
+
+<ng-template #adminUser>
+  <ul>
+    <li
+      [routerLink]="['/admin/solicitudes']"
+    >
+      Solicitudes
+    </li>
+    <li
+      [routerLink]="['/admin/voluntariados']"
+    >
+      Voluntariados
+    </li>
+    <li
+      [routerLink]="['/admin/mascotas']"
+    >
+      Mascotas
+    </li>
+  </ul>
+</ng-template>

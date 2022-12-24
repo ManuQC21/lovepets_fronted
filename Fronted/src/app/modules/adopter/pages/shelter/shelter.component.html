@@ -1,0 +1,40 @@
+<div class="outer-container">
+
+  <div class="shelter-container">
+    <mat-toolbar color="primary">
+      <span>
+        Our Pets
+      </span>
+    </mat-toolbar>
+
+    <div class="filters">
+      <mat-form-field appearance="fill">
+        <mat-label>Size</mat-label>
+        <mat-select>
+          <mat-option [value]="'medium'">Small</mat-option>
+          <mat-option [value]="'medium'">Medium</mat-option>
+          <mat-option [value]="'medium'">Big</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Age</mat-label>
+        <mat-select>
+          <mat-option [value]="'Younger than 5'"><5</mat-option>
+          <mat-option [value]="'Younger than 10'"><10</mat-option>
+          <mat-option [value]="'Younger than 15'"><15</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div class="pets" *ngIf="pets$ | async as pets; else spinner">
+      <app-pet-card [pet]="pet" *ngFor="let pet of pets">
+      </app-pet-card>
+    </div>
+  </div>
+</div>
+
+<ng-template #spinner>
+  <div class="loading">
+    <mat-spinner></mat-spinner>
+  </div>
+</ng-template>

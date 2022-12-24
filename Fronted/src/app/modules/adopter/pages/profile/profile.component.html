@@ -1,0 +1,54 @@
+<div class="outer-container">
+
+  <div class="profile-container">
+    <ng-container *ngIf="{
+      profile: profile$ | async, profileError: profileError$ | async
+      } as vm">
+
+      <ng-container *ngIf="!vm.profileError && vm.profile as profile; else loading">
+        <mat-toolbar color="primary">
+          <span>
+            Editar Perfil
+          </span>
+        </mat-toolbar>
+        <div class="form-container">
+          <app-profile-form class="form"
+                            [profile]="profile"
+                            (onSubmit)="onFormSubmit($event)">
+          </app-profile-form>
+        </div>
+      </ng-container>
+
+    </ng-container>
+  </div>
+
+</div>
+
+<ng-template #loading>
+  <ng-container *ngIf="profileError$ | async as profileError; else spinner">
+    <ng-container *ngIf="profileError">
+      <mat-toolbar color="primary">
+          <span >
+            Crear Perfil
+          </span>
+      </mat-toolbar>
+      <div class="form-container">
+        <app-profile-form class="form"
+                          (onSubmit)="onFormSubmit($event)">
+        </app-profile-form>
+      </div>
+    </ng-container>
+  </ng-container>
+</ng-template>
+
+<ng-template #spinner>
+  <div class="loading">
+    <mat-spinner></mat-spinner>
+  </div>
+</ng-template>
+
+<ng-template #noProfile>
+        <span>
+          Crear Perfil
+        </span>
+</ng-template>

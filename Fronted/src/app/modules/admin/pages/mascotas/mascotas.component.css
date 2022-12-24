@@ -1,0 +1,20 @@
+
+table {
+  width: 100%;
+}
+
+.detail:hover {
+  cursor: pointer;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 40px;
+}
+
+.header h2 {
+  margin: 0;
+  display: block;
+}
